@@ -1,0 +1,78 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+int isSubstring(string s1, string s2, string s3) 
+{ 
+    int M = s1.length(); 
+    int N = s2.length(); 
+    int R = s3.length();
+    int a,b,c;
+  
+   
+    for (int i = 0; i <= R - M; i++) { 
+        int j; 
+  
+        for (j = 0; j <M ; j++) 
+            if (s3[i + j] != s1[j]) 
+                c=-1;
+                a=-1;
+                break; 
+  
+        if (j == M) 
+            a=i; 
+    } 
+    for (int i = 0; i <= R - N; i++) { 
+        int j; 
+  
+        for (j = 0; j < N; j++) 
+            if (s3[i + j] != s2[j])
+                c=-1;
+                b=-1;
+                break; 
+  
+        if (j == N) {
+            b=i;
+            
+        }
+            
+    }
+    if(a && b>c){
+        return 1;
+    }else if(a>c && b==c){
+        return 2;
+    }
+    else if(a==c && b>c){
+        return 3;
+    }
+    else{
+        return -1;
+    }
+} 
+int main() {
+	// your code goes here
+	int n,i,res;
+	cin>>n;
+	string s1="berhampore";
+	string s2="serampore";
+	string s3;
+	char a[n];
+	for(i=0; i<n; i++){
+	    cin>>a[i];
+	    s3=tolower(a[i]);
+        res = isSubstring(s1, s2, s3); 
+        if (res == 3){
+            cout << "GCETTS "; 
+        } 
+        else if(res==1){
+            cout<<"Both";
+        }else if(res==2){
+            cout<<"GCETTB";
+        }
+        else{
+            cout<<"Others";
+        }
+	}
+    
+	return 0;
+}
