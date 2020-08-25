@@ -3,12 +3,13 @@ using namespace std;
 int countit(int a[],int n,int k){
 	int count=0;
 	int trip=1;
+	int i=n-1;
 	for(int i=0; i<n; i++){
 		if(a[i]>k){
 			return -1;				
 		}
 		if(count+a[i]<=k){
-				count += a[i];
+			count += a[i];
 			}
 		else{
 			trip++;
@@ -22,17 +23,18 @@ int main(){
 	cin>>a;
 	int weights[a];
 	
-	for(int i=0; i<a; i++){
+	while(a--){
 		int n,k;
 		cin>>n>>k;
 		
 		for(int j=0; j<n; j++){
 			cin>>weights[j];
-		}
-		cout<<countit(weights,n,k);
-		
+		}		
 	}
-	
+	for(int i=0; i<a; i++)
+	{
+		cout<<b[i]<<endl;
+	}
 	
 	return 0;
 }
