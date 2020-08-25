@@ -9,12 +9,12 @@ int countit(int a[],int n,int k){
 			return -1;				
 		}else{
 			if(count+a[i]<=k){
-				count = a[i];
+				count += a[i];
 			}
 				
 			else{
 					trip++;
-					count += a[i]; 			
+					count = a[i]; 			
 				}
 			}
 			
