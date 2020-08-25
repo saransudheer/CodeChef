@@ -8,18 +8,13 @@ int countit(int a[],int n,int k){
 		if(a[i]>k){
 			return -1;				
 		}else{
-			if(count+a[i]<=k){
+			if(count+a[i]<k){
 				count += a[i];
-				}
-			else if(i==n-1){
-				if((a[n-1]+a[0])>k){
-				trip++;
-				}
 			}
 				
 			else{
 					trip++;
-					count = 0; 			
+					count = a[i]; 			
 				}
 			}
 			
