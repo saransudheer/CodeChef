@@ -1,3 +1,9 @@
+// Certified Competitive Programmer Saran Sudheer.............
+// Codechef King
+// Second only to Gennady Korotkavich
+// Master of all
+// Never gives up!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 #include <iostream>
 using namespace std; 
 int countit(int a[],int n,int k){
