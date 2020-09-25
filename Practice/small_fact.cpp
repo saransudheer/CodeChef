@@ -1,25 +1,33 @@
-#include <iostream>
-#include <cstdio>
+#include<iostream>
+
 using namespace std;
-typedef long long int lli;
-lli fact(int n){
-    lli result=1;
-    while(n!=1){
-        result*=n;
-        n--;
+
+unsigned long long factorial(int a)
+
+{
+    if(a==0)
+    {
+        return 1;
     }
-    return result;
+    else{
+    int ans=1;
+    for(int i=1;i<=a;i++)
+    {
+        ans=ans*i;
+    }
+    return ans;
+    }
 }
 
-int main() {
-	// your code goes here
-	int n;
-	scanf("%d",&n);
-	while(n!=0){
-	    int val;
-	    scanf("%d",&val);
-	    printf("%lli\n",fact(val));
-	    n--;
-	}
-	return 0;
+int main()
+
+{
+    int t,n;
+    cin>>t;
+    while(t--)
+    {
+        cin>>n;
+        cout<<factorial(n)<<endl;
+    }
+    return 0;
 }
