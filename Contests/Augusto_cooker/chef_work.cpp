@@ -44,7 +44,6 @@ int main(){
 	for(int i=0; i<a; i++)
 	{
 		cout<<b[i]<<endl;
-	}
-	
+	}	
 	return 0;
 }
