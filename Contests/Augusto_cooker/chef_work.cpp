@@ -4,46 +4,44 @@
 // Master of all
 // Never gives up!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-#include <iostream>
-using namespace std; 
-int countit(int a[],int n,int k){
-	int count=0;
-	int trip=1;
-	
-	for(int i=0; i<n; i++){
-		if(a[i]>k){
-			return -1;				
-		}else{
-			if(count+a[i]<=k){
-				count += a[i];
-			}
-				
-			else{
-					trip++;
-					count = a[i]; 			
-				}
-			}
-			
-		}
-	return trip;
-}
-int main(){
-	int a;
-	cin>>a;
-	int weights[a];
-	int b[a];
-	for(int i=0; i<a; i++){
-		int n,k;
-		cin>>n>>k;
-		
-		for(int j=0; j<n; j++){
-			cin>>weights[j];
-		}	
-		b[i]=countit(weights,n,k);	
+#include <bits/stdc++.h>
+using namespace std;
+
+void solveTestCase() {
+	int N, K;
+	cin >> N >> K;
+	vector<int> weight(N);
+	for(int i = 0; i < N; i ++) {
+		cin >> weight[i];
 	}
-	for(int i=0; i<a; i++)
-	{
-		cout<<b[i]<<endl;
-	}	
+	for(int i = 0; i < N; i ++) {
+		if(weight[i] > K) { // If there is a box with weight higher than K, then chef can't lift it so answer is impossible or -1.
+			cout << -1 << '\n';
+			return;
+		}
+	}
+	int trips = 0, id = 0;
+	while(id < N) {
+		trips ++;
+		int pickedUp = 0;
+		while((id < N) && (weight[id]+pickedUp <= K)) { // try to go as right as you can.
+			pickedUp += weight[id];
+			id ++;
+		}
+	}
+	cout << trips << '\n';
+}
+
+int main() {
+	ios_base::sync_with_stdio(0); // fast IO
+	cin.tie(0);
+	cout.tie(0);
+
+	int testCase;
+	cin >> testCase;
+	for(int i = 1; i <= testCase; i ++) {
+		solveTestCase();
+	}
+
 	return 0;
 }
